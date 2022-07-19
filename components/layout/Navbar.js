@@ -1,6 +1,6 @@
 import styles from './Navbar.module.scss';
 
-function Navbar(props) {
+function Navbar() {
   return (
     <header className={styles.header}>
       <h1>LOGO</h1>
