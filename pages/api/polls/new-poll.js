@@ -1,4 +1,4 @@
-import { connectDatabase } from '../../../helpers/db-utils';
+import { connectDatabase, insertDocument } from '../../../helpers/db-utils';
 
 async function handler(req, res) {
   let client;
@@ -18,7 +18,16 @@ async function handler(req, res) {
       option1,
       option2,
     }
-    res.status(201).json({ message: "New poll form works", newPoll: newPoll });
+
+    let result;
+
+    try {
+      result = await insertDocument(client, 'polls', newPoll);
+      newPoll._id = result.insertedId;
+      res.status(201).json({message: "Created new poll", newPoll: newPoll})
+    } catch (error) {
+      res.status(500).json({message: "Inserting new poll into database failed"});
+    }
   }
   client.close();
   console.log("database connection closed");
