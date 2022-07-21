@@ -4,16 +4,15 @@ import styles from './new-vote.module.scss';
 function NewVote(props) {
   const { poll } = props;
 
-  const option1SelectRef = useRef();
-  const option2SelectRef = useRef();
+  const optionSelectRefs = useRef([]);
 
   const submitVoteHandler = (event) => {
     event.preventDefault();
 
     let votedOptions = [];
-    option1SelectRef.current.checked && votedOptions.push(option1SelectRef.current.id);
-    option2SelectRef.current.checked && votedOptions.push(option2SelectRef.current.id);
-    // console.log(votedOptions);
+    votedOptions = optionSelectRefs.current
+      .filter(ref => ref.checked)
+      .map(el => parseInt(el.id, 10));
 
     fetch("/api/votes/new-vote", {
       method: "POST",
@@ -32,14 +31,16 @@ function NewVote(props) {
   return (
     <form onSubmit={submitVoteHandler}>
       <div className={styles.form}>
-        <div>
-          <input type="checkbox" id="option1" name="option1" value="option1" ref={option1SelectRef} />
-          <label htmlFor="option1">{poll.option1}</label>
-        </div>
-        <div>
-          <input type="checkbox" id="option2" name="option2" value="option2" ref={option2SelectRef} />
-          <label htmlFor="option2">{poll.option2}</label>
-        </div>
+        {poll.options.map(option => (
+          <div key={option.id}>
+            <input
+              type="checkbox"
+              name={`option${option.id}`}
+              id={option.id}
+              ref={(el) => (optionSelectRefs.current[option.id - 1] = el)} />
+            <label htmlFor={`option${option.id}`}>{option.text}</label>
+          </div>
+        ))}
         <div>
           <input type="submit" value="Submit vote" />
         </div>

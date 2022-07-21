@@ -24,7 +24,6 @@ function NewPoll(props) {
     event.preventDefault();
 
     const questionInput = questionInputRef.current.value;
-    const numberOptionsInput = numberOptions;
 
     const options = [];
     optionRefs.current.forEach((ref, i) => options.push({id: i+1, text: ref.value}));
@@ -33,7 +32,6 @@ function NewPoll(props) {
       method: 'POST',
       body: JSON.stringify({
         question: questionInput,
-        numberOptions: numberOptionsInput,
         options: options,
       }),
       headers: {
