@@ -4,11 +4,13 @@ import styles from './new-vote.module.scss';
 function NewVote(props) {
   const { poll } = props;
 
+  const nameInputRef = useRef();
   const optionSelectRefs = useRef([]);
 
   const submitVoteHandler = (event) => {
     event.preventDefault();
 
+    const name = nameInputRef.current.value;
     let votedOptions = [];
     votedOptions = optionSelectRefs.current
       .filter(ref => ref.checked)
@@ -18,6 +20,7 @@ function NewVote(props) {
       method: "POST",
       body: JSON.stringify({
         pollId: poll._id,
+        name: name,
         votedOptions: votedOptions,
       }),
       header: {
@@ -31,6 +34,10 @@ function NewVote(props) {
   return (
     <form onSubmit={submitVoteHandler}>
       <div className={styles.form}>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" id="name" ref={nameInputRef} />
+        </div>
         {poll.options.map(option => (
           <div key={option.id}>
             <input

@@ -12,10 +12,11 @@ async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const { pollId, votedOptions } = JSON.parse(req.body);
+    const { pollId, name, votedOptions } = JSON.parse(req.body);
 
     const newVote = {
       pollId,
+      name,
       votedOptions,
     };
     // console.log("newVote FROM HANDLER", newVote);
