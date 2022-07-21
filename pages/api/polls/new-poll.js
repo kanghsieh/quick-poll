@@ -10,13 +10,11 @@ async function handler(req, res) {
     return;
   }
   if (req.method === 'POST') {
-    const { question, numberOptions, option1, option2 } = req.body;
+    const { question, options } = req.body;
 
     const newPoll = {
       question,
-      numberOptions,
-      option1,
-      option2,
+      options,
     }
 
     let result;
