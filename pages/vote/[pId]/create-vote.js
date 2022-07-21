@@ -1,21 +1,19 @@
-import { connectDatabase, findDocumentById } from "../../helpers/db-utils";
+import { connectDatabase, findDocumentById } from "../../../helpers/db-utils";
+import NewVote from "../../../components/input/new-vote";
 
-function pollShowPage(props) {
+function CreateVote(props) {
   const { poll } = props;
   return (
     <div>
-      <h1>Poll question: {poll.question}</h1>
-      <h2>Poll ID: {poll._id}</h2>
-      <ul>
-        <li>{poll.option1}</li>
-        <li>{poll.option2}</li>
-      </ul>
+      <h1>Vote for poll ID {poll.id}</h1>
+      <h2>Question: {poll.question}</h2>
+      <NewVote poll={poll} />
     </div>
   )
 }
 
 export async function getServerSideProps(context) {
-  const pollId = context.params.id;
+  const pollId = context.params.pId;
   try {
     const client = await connectDatabase();
     const poll = await findDocumentById(client, 'polls', pollId);
@@ -35,4 +33,4 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default pollShowPage;
+export default CreateVote;
