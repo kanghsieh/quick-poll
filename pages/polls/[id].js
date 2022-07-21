@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { connectDatabase, findDocumentById } from "../../helpers/db-utils";
 
 function pollShowPage(props) {
@@ -11,6 +12,7 @@ function pollShowPage(props) {
           <li key={option.id}>{option.text}</li>
         ))}
       </ul>
+      <Link href={`/vote/${poll._id}/create-vote`}>Submit vote</Link>
     </div>
   )
 }
