@@ -19,3 +19,11 @@ export async function insertDocument(client, collection, document) {
   const result = await db.collection(collection).insertOne(document);
   return result;
 }
+
+export async function getAllDocuments(client, collection) {
+  const db = await client.db(mongodb_db);
+
+  const documents = await db.collection(collection).find().toArray();
+
+  return documents;
+}
