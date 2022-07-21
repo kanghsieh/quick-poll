@@ -7,8 +7,9 @@ function pollShowPage(props) {
       <h1>Poll question: {poll.question}</h1>
       <h2>Poll ID: {poll._id}</h2>
       <ul>
-        <li>{poll.option1}</li>
-        <li>{poll.option2}</li>
+        {poll.options.map(option => (
+          <li key={option.id}>{option.text}</li>
+        ))}
       </ul>
     </div>
   )
