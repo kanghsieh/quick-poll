@@ -6,7 +6,7 @@ function pollShowPage(props) {
   return (
     <div>
       <h1>Poll question: {poll.question}</h1>
-      <h2>Poll ID: {poll._id}</h2>
+      <h2>Share this link to vote and view results:</h2>
       <ul>
         {poll?.options.map(option => (
           <li key={option.id}>

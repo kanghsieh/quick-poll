@@ -66,7 +66,8 @@ function NewPoll(props) {
           </div>)
         )}
         <div>
-          <input type="submit" value="Create poll" onClick={createPollHandler} />
+          {/* <input type="submit" value="Create poll" onClick={createPollHandler} /> */}
+          <button type='submit' onClick={createPollHandler}>Create poll</button>
         </div>
       </div>
     </form>

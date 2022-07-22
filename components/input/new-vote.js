@@ -54,7 +54,8 @@ function NewVote(props) {
           </div>
         ))}
         <div>
-          <input type="submit" value="Submit vote" />
+          {/* <input type="submit" value="Submit vote" /> */}
+          <button type='submit'>Submit vote</button>
         </div>
       </div>
     </form>

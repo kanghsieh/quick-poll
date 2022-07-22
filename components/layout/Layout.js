@@ -12,7 +12,7 @@ function Layout(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main>{props.children}</main>
+      <main className={styles.main}>{props.children}</main>
     </div>
   )
 }

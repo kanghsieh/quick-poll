@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useRouter } from "next/router";
+import styles from "./get-poll.module.scss";
 
 function GetPoll(props) {
   const router = useRouter();
@@ -19,9 +20,16 @@ function GetPoll(props) {
 
   return (
     <form onSubmit={submitPollIdHandler}>
-      <label htmlFor="pollId">Poll ID</label>
-      <input type="text" name="pollId" id="pollId" ref={pollIdRef} />
-      <input type="submit" value="Go to poll" />
+      <div className={styles.searchForm}>
+        <input className={styles.control}
+          type="text"
+          name="pollId"
+          id="pollId"
+          placeholder="Poll ID"
+          ref={pollIdRef} />
+        {/* <input type="submit" value="Go to poll" /> */}
+        <button className={styles.btn} type="submit">Go to poll</button>
+      </div>
     </form>
   )
 }

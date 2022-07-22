@@ -11,13 +11,14 @@ export default function Home(props) {
         Welcome to Quick Poll
       </h1>
       <h2>Create a simple poll quick and dirty without signups!</h2>
-      <button>
-        <Link href="/polls/new-poll">
-          Create new poll
-        </Link>
-      </button>
-      <GetPoll allPollIds={allPollIds} />
-      <button>Retrieve existing poll</button>
+      <div className={styles.box}>
+        <GetPoll allPollIds={allPollIds} />
+        <button>
+          <Link href="/polls/new-poll">
+            Create new poll
+          </Link>
+        </button>
+      </div>
       <footer className={styles.footer}>
       </footer>
     </div>
