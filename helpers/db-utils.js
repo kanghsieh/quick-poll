@@ -34,3 +34,11 @@ export async function findDocumentById(client, collection, id) {
 
   return document;
 }
+
+export async function filterDocuments(client, collection, query) {
+  const db = await client.db(mongodb_db);
+
+  const documents = await db.collection(collection).find(query).toArray();
+
+  return documents;
+}
