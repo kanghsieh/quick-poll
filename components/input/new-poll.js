@@ -50,7 +50,6 @@ function NewPoll(props) {
 
   return (
     <form>
-      <h1>{numberOptions}</h1>
       <div className={styles.form}>
         <div className={styles.field}>
           <label htmlFor="question">Your question</label>

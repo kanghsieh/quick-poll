@@ -24,7 +24,7 @@ export default function Home(props) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = await connectDatabase();
   const allPolls = await getAllDocuments(client, 'polls');
   return {
