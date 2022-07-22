@@ -1,8 +1,11 @@
 import { useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from './new-poll.module.scss';
 
 function NewPoll(props) {
   const [numberOptions, setNumberOptions] = useState(2);
+
+  const router = useRouter();
 
   const questionInputRef = useRef();
   const optionRefs = useRef([]);
@@ -39,7 +42,10 @@ function NewPoll(props) {
       }
     })
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        console.log(data);
+        data && router.push(`/polls/${data.newPoll._id}`);
+      });
   }
 
   return (
