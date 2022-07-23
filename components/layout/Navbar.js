@@ -7,16 +7,18 @@ function Navbar() {
     <header className={styles.header}>
       <nav className={styles.navbar}>
         <ul className={styles.navlist}>
-          <li className={styles.logo}>
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={50}
-              height={50}
-            />
-            quickPOLL
-          </li>
-          <li><Link href={"/"}>Home</Link></li>
+          <Link href="/">
+            <li className={styles.logo}>
+                <Image
+                  src="/logo.png"
+                  alt="Logo"
+                  width={50}
+                  height={50}
+                />
+                quickPOLL
+            </li>
+          </Link>
+          {/* <li><Link href={"/"}>Home</Link></li> */}
           <li><Link href={"/polls/new-poll"}>Create new poll</Link></li>
         </ul>
       </nav>
