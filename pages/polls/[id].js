@@ -1,5 +1,12 @@
 import Link from "next/link";
+import PollResults from "../../components/poll/poll-results.tsx";
 import { connectDatabase, findDocumentById, filterDocuments } from "../../helpers/db-utils";
+import dynamic from "next/dynamic";
+
+const PollResultsWithoutSSR = dynamic(
+        import("../../components/poll/poll-results.tsx"),
+        { ssr: false }
+    );
 
 function pollShowPage(props) {
   const { poll, results } = props;
@@ -7,13 +14,8 @@ function pollShowPage(props) {
     <div>
       <h1>Poll question: {poll.question}</h1>
       <h2>Share this link to vote and view results.</h2>
-      <ul>
-        {poll?.options.map(option => (
-          <li key={option.id}>
-            {option.text}: {results[option.id]} votes
-          </li>
-        ))}
-      </ul>
+      {/* <PollResults poll={poll} results={results} /> */}
+      <PollResultsWithoutSSR poll={poll} results={results} />
       <Link href={`/vote/${poll._id}/create-vote`}>
         <button>Submit vote</button>
       </Link>
