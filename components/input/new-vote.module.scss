@@ -1,0 +1,19 @@
+.btn {
+  width: 100%;
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .checkbox {
+    width: 15%;
+    margin: 0;
+  }
+
+  .label {
+    width: 85%;
+    margin-left: 10px;
+  }
+}
