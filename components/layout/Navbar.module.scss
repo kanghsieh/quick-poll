@@ -1,14 +1,14 @@
 .header {
   background-color: black;
   color: white;
+  margin: 0;
 }
 
 nav {
   .navlist {
     list-style-type: none;
     padding: 15px;
-    // margin-left: 50vh;
-    // margin-right: 50vh;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
