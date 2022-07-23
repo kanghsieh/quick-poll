@@ -1,3 +1,22 @@
 .form {
   display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.toggler {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .btnToggler {
+    width: 40%;
+    font-size: x-large;
+  }
+}
+
+
+.btn {
+  width: 100%;
 }

@@ -40,21 +40,23 @@ function NewVote(props) {
     <form onSubmit={submitVoteHandler}>
       <div className={styles.form}>
         <div>
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" ref={nameInputRef} />
+          {/* <label htmlFor="name">Name</label> */}
+          <input type="text" name="name" id="name" placeholder="Name" ref={nameInputRef} />
         </div>
         {poll.options.map(option => (
-          <div key={option.id}>
+          <div className={styles.option} key={option.id}>
             <input
+              className={styles.checkbox}
               type="checkbox"
               name={`option${option.id}`}
               id={option.id}
               ref={(el) => (optionSelectRefs.current[option.id - 1] = el)} />
-            <label htmlFor={`option${option.id}`}>{option.text}</label>
+            <label className={styles.label} htmlFor={`option${option.id}`}>{option.text}</label>
           </div>
         ))}
         <div>
-          <input type="submit" value="Submit vote" />
+          {/* <input type="submit" value="Submit vote" /> */}
+          <button className={styles.btn} type='submit'>Submit vote</button>
         </div>
       </div>
     </form>

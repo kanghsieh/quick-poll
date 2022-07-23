@@ -52,21 +52,22 @@ function NewPoll(props) {
     <form>
       <div className={styles.form}>
         <div className={styles.field}>
-          <label htmlFor="question">Your question</label>
-          <input type="text" id="question" ref={questionInputRef} />
+          {/* <label htmlFor="question">Your question</label> */}
+          <input type="text" id="question" placeholder="Your question" ref={questionInputRef} />
         </div>
-        <div>
-          <button onClick={increaseNumberOptions}>+</button>
-          <button onClick={decreaseNumberOptions}>-</button>
+        <div className={styles.toggler}>
+          <button className={styles.btnToggler} onClick={increaseNumberOptions}>+</button>
+          <button className={styles.btnToggler} onClick={decreaseNumberOptions}>-</button>
         </div>
         {[...Array(numberOptions).keys()].slice(0).map(n =>
           (<div className={styles.field} key={n+1}>
-            <label htmlFor={`option${n+1}`}>option {n+1}</label>
-            <input type="text" id={`option${n+1}`} ref={(el) => (optionRefs.current[n] = el)} />
+            {/* <label htmlFor={`option${n+1}`}>option {n+1}</label> */}
+            <input type="text" id={`option${n+1}`} placeholder={`Option ${n+1}`} ref={(el) => (optionRefs.current[n] = el)} />
           </div>)
         )}
         <div>
-          <input type="submit" value="Create poll" onClick={createPollHandler} />
+          {/* <input type="submit" value="Create poll" onClick={createPollHandler} /> */}
+          <button className={styles.btn} type='submit' onClick={createPollHandler}>Create poll</button>
         </div>
       </div>
     </form>

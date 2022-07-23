@@ -1,4 +1,22 @@
-.navlist {
+.header {
+  background-color: black;
+  color: white;
+  margin: 0;
+}
+
+nav {
+  .navlist {
+    list-style-type: none;
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+}
+
+.logo {
   display: flex;
-  flex-direction: row;
+  align-items: center;
 }

@@ -1,0 +1,25 @@
+.footerBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  height: 5vh;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: small;
+}
+
+.footer {
+  width: 50%;
+  display:inline-flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  justify-content: space-around;
+  // display: block;
+  // position: relative;
+  // bottom: 0;
+}
